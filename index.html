@@ -490,9 +490,10 @@
                <div class="col-md-8">
                   <div class="email_text">
                      <div class="input-group mb-3">
-                        <input style="border-bottom-left-radius: 20px !important; border-top-left-radius: 20px !important;" type="text" class="form-control" placeholder="Enter your email">
+                        <input id="email" style="border-bottom-left-radius: 20px !important; border-top-left-radius: 20px !important;" type="email" class="form-control" placeholder="Enter your email">
                      <div class="input-group-append">
-                        <button style="border-top-right-radius: 20px !important; border-bottom-right-radius: 20px !important; color: #fff; padding-bottom: 10px; padding-top: 10px;" class="btn btn-primary" type="Subscribe">Subscribe</button>  
+                        <!-- <button style="border-top-right-radius: 20px !important; border-bottom-right-radius: 20px !important; color: #fff; padding-bottom: 10px; padding-top: 10px;" class="btn btn-primary" type="Subscribe">Subscribe</button>   -->
+                        <input onclick="validateEmail()" style="border-top-right-radius: 20px !important; border-bottom-right-radius: 20px !important; color: #fff; padding-bottom: 10px; padding-top: 10px;" class="btn btn-primary" type="button" value="Subscribe" > 
                      </div>
                      </div>
                   </div>
@@ -642,6 +643,38 @@
         }
       );
     }
+</script>
+<script>
+    function validateEmail() {
+      let email = document.getElementById("email").value;
+      if (!email) {
+        alert("Enter Your Email.");
+        return false;
+      }
+      const emailRegex = /^\S+@\S+\.\S+$/;
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+      sendMail();
+      return false; 
+      function sendMail() {
+      let email = document.getElementById("email").value;
+      let emailBody ="Email: " + email;
+
+      Email.send({
+        SecureToken: "e9ba95e0-b278-47ba-9396-1cf8388fab1c",
+        To: 'rpl.tournament.howrah@outlook.com',
+        From: "rpl.tournament.howrah@outlook.com",
+        Subject: "Contact Message from " + email,
+        Body: emailBody
+      }).then(
+        message => {
+         alert("Thanks For Your Message");
+        }
+      );
+    }
+   }
 </script>
    </body>
 </html>

@@ -150,23 +150,28 @@
                </div>
                <div class="col-md-6">
                   <div class="email_btn">
-                     <form action="/action_page.php">
+                     <form id="myForm">
                         <div class="form-group">
-                           <input type="text" class="form-control form-control-sm" placeholder="Name" name="Name">
+                           <input type="text" class="form-control form-control-sm" placeholder="Team Name" name="Name"
+                              id="Name">
                         </div>
                         <div class="form-group">
-                           <input  type="text" class="form-control form-control-sm" placeholder="Email" name="Email">
+                           <input type="email" class="form-control form-control-sm" placeholder="Email" name="Email"
+                              id="Email">
                         </div>
                         <div class="form-group">
-                           <input  type="text" class="form-control form-control-sm" placeholder="Phone" name="Phone">
+                           <input type="tel" class="form-control form-control-sm" placeholder="Phone" name="Phone"
+                              id="Phone">
                         </div>
                         <div class="form-group">
-                           <input  type="text" class="form-control form-control-sm" placeholder="Massage" name="text3">
+                           <input type="txtarea" cols="30" rows="10" class="form-control form-control-sm"
+                              placeholder="Players Name" name="Message" id="Message">
                         </div>
-                         <div class="submit_btn">
-                            <button type="submit" class="btn btn-primary" style="background: #081b30;">Send</button>
-                         </div>
-                      </form>
+                        <div class="submit_btn">
+                           <input type="button" onclick="validateForm()" class="btn btn-primary"
+                              style="background: #081b30; color: #fff; padding: 11px;" value="Send Message">
+                        </div>
+                     </form>
                   </div>
                </div>
             </div>
@@ -277,7 +282,93 @@
          });
          
       </script> 
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+<script>
 
+   function validateForm() {
+      let name = document.getElementById("Name").value;
+      let email = document.getElementById("Email").value;
+      let phoneNo = document.getElementById("Phone").value;
+      let message = document.getElementById("Message").value;
+
+      // Simple validation
+      if (!name || !email || !phoneNo || !message) {
+         alert("Please fill in all fields.");
+         return false;
+      }
+
+      // Email validation (you can use a more complex validation if needed)
+      const emailRegex = /^\S+@\S+\.\S+$/;
+      if (!emailRegex.test(email)) {
+         alert("Please enter a valid email address.");
+         return false;
+      }
+
+      // Phone number validation (you can use a more complex validation if needed)
+      const phoneRegex = /^\d{10}$/;
+      if (!phoneRegex.test(phoneNo)) {
+         alert("Please enter a valid 10-digit phone number.");
+         return false;
+      }
+
+      // If all validations pass, send the email
+      sendMail();
+      return false; // Prevent the form from actually submitting
+   }
+
+   function sendMail() {
+      let name = document.getElementById("Name").value;
+      let email = document.getElementById("Email").value;
+      let phoneNo = document.getElementById("Phone").value;
+      let message = document.getElementById("Message").value;
+      let emailBody = "Name: " + name + "<br/>Email: " + email + "<br/>Phone: " + phoneNo + "<br/>Message: " + message;
+
+      Email.send({
+         SecureToken: "e9ba95e0-b278-47ba-9396-1cf8388fab1c",
+         To: 'rpl.tournament.howrah@outlook.com',
+         From: "rpl.tournament.howrah@outlook.com",
+         Subject: "Contact Message from " + name,
+         Body: emailBody
+      }).then(
+         message => {
+            alert("Thanks For Your Message");
+         }
+      );
+   }
+</script>
+<script>
+   function validateEmail() {
+      let email = document.getElementById("email").value;
+      if (!email) {
+         alert("Enter Your Email.");
+         return false;
+      }
+      const emailRegex = /^\S+@\S+\.\S+$/;
+      if (!emailRegex.test(email)) {
+         alert("Please enter a valid email address.");
+         return false;
+      }
+      sendMail();
+      return false;
+      function sendMail() {
+         let email = document.getElementById("email").value;
+         let emailBody = "Email: " + email;
+
+         Email.send({
+            SecureToken: "e9ba95e0-b278-47ba-9396-1cf8388fab1c",
+            To: 'rpl.tournament.howrah@outlook.com',
+            From: "rpl.tournament.howrah@outlook.com",
+            Subject: "Contact Message from " + email,
+            Body: emailBody
+         }).then(
+            message => {
+               alert("Thanks For Your Message");
+            }
+         );
+      }
+   }
+</script>
 
 </body>
 </html>

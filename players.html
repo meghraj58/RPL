@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Players | RPL Season 8</title>
+  <meta name="description" content="RPL Season 8 player pool: add name, photo, batsman, bowler or all-rounder, then captain, vice-captain or player.">
+  <link rel="icon" href="images/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800&family=Rajdhani:wght@600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=9">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="loader" aria-hidden="true">
+    <div class="loader-mark">
+      <img src="images/cricket-ball.svg" alt="">
+      <p>Squad desk</p>
+    </div>
+  </div>
+
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.jpg" alt="Rankal Premiere League crest">
+        <span><strong>RANKAL</strong><small>Season 8</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="players.html" class="is-active">Players</a>
+        <a href="auction.html">Auction</a>
+        <a href="matches.html">Matches</a>
+        <a href="service.html">Services</a>
+        <a href="payment.html">Payment</a>
+        <a href="contact.html" class="btn btn-gold btn-sm">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow"><span class="live-dot"></span> Auction pool</p>
+        <h1>Players</h1>
+        <p class="hero-copy">Drop a jersey photo. Pick batsman, bowler or all-rounder. The board updates live for every device on this site.</p>
+      </div>
+    </section>
+
+    <section class="section" id="add-player">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Enter the pool</p>
+          <h2>Name, category, role, age, photo</h2>
+        </div>
+        <form id="squad-form" class="panel player-form reveal">
+          <div class="player-form-grid">
+            <div>
+              <label for="sqName">Player name</label>
+              <input id="sqName" name="sqName" type="text" placeholder="Full name" required>
+            </div>
+            <div>
+              <label for="sqCategory">Category</label>
+              <select id="sqCategory" name="sqCategory" required>
+                <option value="">Select category</option>
+                <option value="batsman">Batsman</option>
+                <option value="bowler">Bowler</option>
+                <option value="allrounder">All-rounder</option>
+              </select>
+            </div>
+            <div>
+              <label for="sqRole">Role</label>
+              <select id="sqRole" name="sqRole" required>
+                <option value="">Select role</option>
+                <option value="captain">Captain</option>
+                <option value="vicecaptain">Vice-captain</option>
+                <option value="player">Player</option>
+              </select>
+            </div>
+            <div>
+              <label for="sqAge">Age</label>
+              <input id="sqAge" name="sqAge" type="number" min="12" max="60" required>
+            </div>
+            <div class="photo-field">
+              <label for="sqPhoto">Photo</label>
+              <div class="photo-row">
+                <div class="photo-preview" id="sqPreview">Jersey shot</div>
+                <input id="sqPhoto" name="sqPhoto" type="file" accept="image/*">
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-gold" type="submit">Add player</button>
+          <p class="form-note" id="squad-note"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section alt" id="squad-board">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker"><span id="squad-count">0</span> players · <span id="squad-sync">loading</span></p>
+          <h2>Category and role board</h2>
+        </div>
+        <div id="roster" class="roster-board"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="images/logo.jpg" alt="RPL logo">
+          <span><strong>RANKAL</strong><small>Season 8</small></span>
+        </a>
+        <p>Dakshin Howrah Milan Samity, Howrah</p>
+      </div>
+      <div>
+        <h3>Visit</h3>
+        <p><a href="https://wa.me/916289708824">Alamgir 62897 08824</a><br>
+        <a href="tel:+917295001179">Monu 72950 01179</a></p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <p>
+          <a href="auction.html">Auction</a><br>
+          <a href="matches.html">Matches</a><br>
+          <a href="payment.html">Payment</a>
+        </p>
+      </div>
+    </div>
+    <div class="container legal">
+      <span>© <span data-year></span> Rankal Premiere League</span>
+      <span>Design by <a href="https://meghraj58.github.io/wizardmeghraj.github.io/">Meghraj Gupta</a></span>
+    </div>
+  </footer>
+  <script src="js/main.js?v=9"></script>
+</body>
+</html>

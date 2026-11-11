@@ -740,6 +740,222 @@ textarea {
   grid-row: 1 / span 2;
 }
 
+.champion-banner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 22px;
+  align-items: stretch;
+  margin-bottom: 28px;
+}
+
+.champion-media {
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  min-height: 320px;
+  background: #061428;
+}
+
+.champion-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: zoom-in;
+}
+
+.champion-copy {
+  background: linear-gradient(180deg, rgba(14, 42, 88, 0.92), rgba(6, 20, 46, 0.96));
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.award-tag {
+  display: inline-flex;
+  margin: 0 0 10px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.award-tag.gold {
+  background: linear-gradient(135deg, var(--gold), #c99212);
+  color: #111;
+}
+
+.champion-copy h3 {
+  margin: 0 0 10px;
+  font-family: var(--display);
+  font-size: clamp(42px, 6vw, 64px);
+  letter-spacing: 0.06em;
+  line-height: 0.92;
+}
+
+.captain-card {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 14px;
+  align-items: center;
+  margin: 22px 0 20px;
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(4, 16, 36, 0.55);
+  border: 1px solid rgba(126, 200, 255, 0.2);
+}
+
+.captain-card img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 16px;
+  cursor: zoom-in;
+  box-shadow: 0 0 0 2px var(--gold);
+}
+
+.captain-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.captain-card strong {
+  display: block;
+  margin: 2px 0 4px;
+  font-size: 20px;
+}
+
+.social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 8px 0 22px;
+  border-top: 1px solid var(--line);
+}
+
+.footer-social .footer-kicker {
+  margin: 0;
+  color: var(--gold);
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.social-btn.facebook {
+  background: #1877f2;
+  color: #fff;
+}
+
+.social-btn.whatsapp {
+  background: #25d366;
+  color: #062016;
+}
+
+.social-btn.instagram {
+  background: linear-gradient(135deg, #f58529, #dd2a7b 48%, #8134af);
+  color: #fff;
+}
+
+.award-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.award-card {
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(14, 42, 88, 0.9), rgba(6, 20, 46, 0.96));
+  box-shadow: var(--shadow);
+}
+
+.award-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: #061428;
+}
+
+.award-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: zoom-in;
+}
+
+.award-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.award-card.orange .award-badge {
+  background: linear-gradient(135deg, #ff7a18, #ff4d00);
+}
+
+.award-card.purple .award-badge {
+  background: linear-gradient(135deg, #7b5cff, #4b2ad6);
+}
+
+.award-card.mvp .award-badge {
+  background: linear-gradient(135deg, var(--gold), #c99212);
+  color: #111;
+}
+
+.award-body {
+  padding: 16px 18px 20px;
+  text-align: center;
+}
+
+.award-body h3 {
+  margin: 4px 0 6px;
+  font-family: var(--display);
+  font-size: 30px;
+  letter-spacing: 0.04em;
+}
+
+.team-line {
+  margin: 0 0 8px;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.stat-line {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .contact-grid {
   grid-template-columns: 1fr 1fr 1.15fr;
 }
@@ -1318,13 +1534,15 @@ textarea:focus {
   .footer-grid,
   .poster-pair,
   .poster-trio,
-  .auction-grid {
+  .auction-grid,
+  .champion-banner {
     grid-template-columns: 1fr;
   }
 
   .stats,
   .feature-grid,
-  .format-grid {
+  .format-grid,
+  .award-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -1404,7 +1622,8 @@ textarea:focus {
   .playoff,
   .format-grid,
   .prize-grid,
-  .date-strip {
+  .date-strip,
+  .award-grid {
     grid-template-columns: 1fr;
   }
 

@@ -197,10 +197,14 @@
       { id: "allrounder", label: "All-rounder" }
     ];
     const ROLES = [
-      { id: "captain", label: "Captain" },
-      { id: "vicecaptain", label: "Vice-captain" },
+      { id: "captain", label: "Captain / Owner" },
       { id: "player", label: "Player" }
     ];
+
+    function normalizedRole(role) {
+      if (role === "captain" || role === "owner") return "captain";
+      return "player";
+    }
 
     const squadNote = document.getElementById("squad-note");
     const photoInput = document.getElementById("sqPhoto");
@@ -403,18 +407,18 @@
       roster.innerHTML = CATEGORIES.map((category) => {
         const inCategory = players.filter((player) => player.category === category.id);
         const rolesHtml = ROLES.map((role) => {
-          const inRole = inCategory.filter((player) => player.role === role.id);
+          const inRole = inCategory.filter((player) => normalizedRole(player.role) === role.id);
           const cards = inRole.length
             ? '<div class="player-grid">' + inRole.map((player) => `
                 <article class="player-card">
                   <img src="${player.photo || "images/cricket-ball.svg"}" alt="${escapeHtml(player.name)}">
                   <div class="body">
                     <div class="badges">
-                      <span class="badge ${player.role}">${labelFor(ROLES, player.role)}</span>
+                      <span class="badge ${normalizedRole(player.role)}">${labelFor(ROLES, normalizedRole(player.role))}</span>
                       <span class="badge">${labelFor(CATEGORIES, player.category)}</span>
                     </div>
                     <h5>${escapeHtml(player.name)}</h5>
-                    <p class="empty-role">Age ${escapeHtml(player.age)}</p>
+                    ${player.mobile ? `<p class="player-meta">${escapeHtml(player.mobile)}</p>` : ""}
                     <button class="btn btn-ghost btn-sm" type="button" data-remove="${player.id}">Remove</button>
                   </div>
                 </article>
@@ -446,15 +450,15 @@
         const name = document.getElementById("sqName").value.trim();
         const category = document.getElementById("sqCategory").value;
         const role = document.getElementById("sqRole").value;
-        const age = document.getElementById("sqAge").value.trim();
+        const mobile = document.getElementById("sqMobile").value.replace(/\D/g, "");
         const file = photoInput && photoInput.files && photoInput.files[0];
 
-        if (!name || !category || !role || !age) {
-          setSquadNote("Fill name, category, role and age.", false);
+        if (!name || !category || !role || !mobile) {
+          setSquadNote("Fill name, category, role and mobile number.", false);
           return;
         }
-        if (Number(age) < 12 || Number(age) > 60) {
-          setSquadNote("Enter a valid playing age.", false);
+        if (!/^[6-9]\d{9}$/.test(mobile)) {
+          setSquadNote("Enter a valid 10-digit mobile number.", false);
           return;
         }
 
@@ -468,7 +472,7 @@
           name: name,
           category: category,
           role: role,
-          age: age,
+          mobile: mobile,
           photo: photo || ""
         });
         await savePlayers(list);

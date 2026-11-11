@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Payment | Rankal Premiere League</title>
-  <meta name="description" content="Pay RPL player or franchise fees by UPI or State Bank of India transfer.">
+  <meta name="description" content="Pay RPL player or franchise fees by UPI. Scan the Amazon Pay QR or use 6289708824@yapl.">
   <link rel="icon" href="images/logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800&family=Rajdhani:wght@600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=13">
+  <link rel="stylesheet" href="css/style.css?v=17">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -45,30 +45,22 @@
       <div class="container">
         <p class="eyebrow"><span class="live-dot"></span> Fees &amp; accounts</p>
         <h1>Payment desk</h1>
-        <p class="hero-copy">Player ₹200 · Franchise ₹2000 · UPI, bank or cash</p>
+        <p class="hero-copy">Player ₹200 · Franchise ₹2000 · Pay by UPI</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container pay-grid">
-        <article class="card reveal">
+      <div class="container pay-wrap">
+        <article class="card reveal pay-card">
           <p class="kicker">UPI</p>
           <h2>Scan &amp; pay</h2>
-          <div class="copy-row"><span>UPI ID</span><strong>6289708824@sbi</strong></div>
-          <div class="copy-row"><span>UPI number</span><strong>6289708824</strong></div>
-          <button class="btn btn-ghost btn-sm" type="button" data-copy="6289708824@sbi">Copy UPI ID</button>
+          <div class="copy-row"><span>Name</span><strong>SK MDALAMGIR</strong></div>
+          <div class="copy-row"><span>UPI ID</span><strong>6289708824@yapl</strong></div>
+          <!-- <div class="copy-row"><span>UPI number</span><strong>6289708824</strong></div> -->
+          <button class="btn btn-ghost btn-sm" type="button" data-copy="6289708824@yapl">Copy UPI ID</button>
           <div class="qr">
-            <img src="images/Alamgit_QR.jpeg" alt="Yono SBI QR code for RPL payments">
+            <img src="images/upi-qr.jpg" alt="Amazon Pay QR for SK MDALAMGIR. UPI ID 6289708824@yapl">
           </div>
-        </article>
-        <article class="card reveal">
-          <p class="kicker">Bank transfer</p>
-          <h2>State Bank of India</h2>
-          <div class="copy-row"><span>Account name</span><strong>SK MD ALAMGIR</strong></div>
-          <div class="copy-row"><span>Account no.</span><strong>43271991808</strong></div>
-          <div class="copy-row"><span>IFSC</span><strong>SBIN0012424</strong></div>
-          <div class="copy-row"><span>Branch</span><strong>Bakultala 711109</strong></div>
-          <button class="btn btn-ghost btn-sm" type="button" data-copy="43271991808">Copy account number</button>
         </article>
       </div>
     </section>
@@ -88,34 +80,45 @@
   </main>
 
   <footer class="site-footer">
+    <div class="footer-ribbon" aria-hidden="true"></div>
     <div class="container footer-grid">
-      <div>
+      <div class="footer-brand">
         <a class="brand" href="index.html">
           <img src="images/logo.jpg" alt="RPL logo">
           <span><strong>RANKAL</strong><small>Season 8</small></span>
         </a>
-        <p>Dakshin Howrah Milan Samity, Howrah</p>
+        <p>Dakshin Howrah Milan Samity, Howrah. Auction, five-over cricket, and a top-four playoff for the Season 8 cup.</p>
       </div>
       <div>
-        <h3>Visit</h3>
-        <p><a href="tel:+919570829408">+91 95708 29408</a><br>
-        <a href="mailto:rpl.tournament.howrah@outlook.com">rpl.tournament.howrah@outlook.com</a></p>
+        <h3 class="footer-title">Visit</h3>
+        <div class="footer-links">
+          <a href="https://wa.me/916289708824">Alamgir · 62897 08824</a>
+          <a href="tel:+917295001179">Monu · 72950 01179</a>
+          <a href="mailto:rpl.tournament.howrah@outlook.com">rpl.tournament.howrah@outlook.com</a>
+        </div>
       </div>
       <div>
-        <h3>Explore</h3>
-        <p>
-          <a href="auction.html">Auction</a><br>
-          <a href="players.html">Players</a><br>
+        <h3 class="footer-title">Explore</h3>
+        <div class="footer-links">
+          <a href="players.html">Players</a>
+          <a href="auction.html">Auction</a>
+          <a href="matches.html">Matches</a>
+          <a href="payment.html">Payment</a>
           <a href="contact.html">Contact</a>
-        </p>
+        </div>
+      </div>
+      <div class="designer-card">
+        <p class="footer-kicker">Website design</p>
+        <p>For website design, contact</p>
+        <a class="designer-name" href="https://meghraj58.github.io/wizardmeghraj.github.io/" target="_blank" rel="noopener noreferrer">Meghraj Gupta</a>
       </div>
     </div>
     <div class="container legal">
       <span>© <span data-year></span> Rankal Premiere League</span>
-      <span>Design by <a href="https://meghraj58.github.io/wizardmeghraj.github.io/">Meghraj Gupta</a></span>
+      <span>For website design, contact <a class="designer-name" href="https://meghraj58.github.io/wizardmeghraj.github.io/" target="_blank" rel="noopener noreferrer">Meghraj Gupta</a></span>
     </div>
   </footer>
   <div class="lightbox" id="lightbox"><img alt=""></div>
-  <script src="js/main.js?v=9"></script>
+  <script src="js/main.js?v=10"></script>
 </body>
 </html>

@@ -858,18 +858,19 @@ textarea:focus {
   color: var(--crimson);
 }
 
-.pay-grid,
-.pay-wrap {
+.pay-grid {
   grid-template-columns: 1fr 1fr;
 }
 
 .pay-wrap {
-  display: grid;
-  justify-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .pay-card {
   width: min(520px, 100%);
+  margin-inline: auto;
   text-align: center;
 }
 
